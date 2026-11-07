@@ -1,121 +1,137 @@
-# PulmoVision AI
-
 <div align="center">
 
-### **Thoracic CT Segmentation & 3D Quantitative Research Platform**
-*"See Beyond the Scan."*
+# PulmoVision AI
+
+### Thoracic CT Segmentation & 3D Quantitative Research Platform
+
+*See beyond the scan.*
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](./LICENSE)
-[![Python](https://img.shields.io/badge/Python-3.10%20%7C%203.11%20%7C%203.12-3776AB.svg?logo=python&logoColor=white)](https://www.python.org/)
+[![Python](https://img.shields.io/badge/Python-3.10%20|%203.11%20|%203.12-3776AB.svg?logo=python&logoColor=white)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688.svg?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 [![React](https://img.shields.io/badge/React-18.3-61DAFB.svg?logo=react&logoColor=black)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6.svg?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Three.js](https://img.shields.io/badge/Three.js-r170-black.svg?logo=three.dot.js&logoColor=white)](https://threejs.org/)
+[![Three.js](https://img.shields.io/badge/Three.js-r170-000000.svg?logo=three.js&logoColor=white)](https://threejs.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.5-EE4C2C.svg?logo=pytorch&logoColor=white)](https://pytorch.org/)
-[![SimpleITK](https://img.shields.io/badge/SimpleITK-2.4-blue.svg)](https://simpleitk.org/)
-[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4-38B2AC.svg?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED.svg?logo=docker&logoColor=white)](https://www.docker.com/)
+[![Docker](https://img.shields.io/badge/Docker-ready-2496ED.svg?logo=docker&logoColor=white)](https://www.docker.com/)
+[![Status](https://img.shields.io/badge/Status-Research_Prototype-orange.svg)](#12-ethical-clinical-and-regulatory-notice)
 
-[Repository](https://github.com/Swagat744/PulmoVision.git) • [User Guide](./docs/USER_GUIDE.md) • [Technical Overview](./docs/TECHNICAL_OVERVIEW.md) • [API Documentation](./docs/API_DOCUMENTATION.md) • [Architecture](./docs/ARCHITECTURE.md)
-
-## Application Preview
-
-Explore the PulmoVision AI interface, from the research dashboard to the dedicated medical imaging workstation.
-
-<div align="center">
-
-### Overview Dashboard
-
-<img src="./docs/assets/pulmovision_dashboard.png" alt="PulmoVision AI Overview Dashboard" width="100%" />
-
-*Centralized research dashboard for managing studies, monitoring segmentation activity, and reviewing analysis.*
+[Repository](https://github.com/Swagat744/PulmoVision) ·
+[User Guide](./docs/USER_GUIDE.md) ·
+[Architecture](./docs/ARCHITECTURE.md) ·
+[API Reference](./docs/API_DOCUMENTATION.md) ·
+[Technical Overview](./docs/TECHNICAL_OVERVIEW.md)
 
 <br/>
 
-### Medical Imaging Workstation
-
-<img src="./docs/assets/pulmovision_workstation.png" alt="PulmoVision AI Medical Imaging Workstation" width="100%" />
-
-*Interactive CT imaging workspace with multi-planar visualization, segmentation overlays, and 3D anatomical reconstruction.*
-
-<br/>
-
-### Platform Preview
-
-<img src="./docs/assets/pulmovision_hero.png" alt="PulmoVision AI Platform Preview" width="100%" />
-
-*PulmoVision AI — Thoracic CT Segmentation & 3D Quantitative Research Platform.*
+<img src="./docs/assets/pulmovision_hero.png" alt="PulmoVision AI platform preview" width="100%" />
 
 </div>
 
+> [!CAUTION]
+> **Research prototype. Not a medical device.**
+> PulmoVision AI is built for academic research, medical imaging education and algorithm evaluation. It is **not** cleared or approved by the U.S. FDA, any CE-marking process, India's CDSCO, or any other regulator, and it is **not** intended to diagnose, monitor, prevent or treat any condition. Every automated contour, volume and attenuation value must be reviewed by a qualified professional before any research use.
+
 ---
 
-> [!CAUTION]
-> ### SCIENTIFIC & MEDICAL RESEARCH PROTOTYPE NOTICE
-> **PulmoVision AI is developed strictly for academic research, medical imaging education, and computer vision algorithmic evaluation.**
-> * It is **NOT** cleared, certified, or approved as a medical device by the U.S. FDA, the European EMA, the Indian CDSCO, or any international medical regulatory agency.
-> * It is **NOT** designed or intended to diagnose, monitor, prevent, or treat any medical disease or pulmonary pathology.
-> * All automated segmentations, anatomical contours, parenchymal volumes, and attenuation values must be independently reviewed and verified by qualified radiological professionals before being utilized in clinical research.
+## Table of Contents
+
+1. [Introduction](#1-introduction)
+2. [Key Features](#2-key-features)
+3. [Application Preview](#3-application-preview)
+4. [System Architecture](#4-system-architecture)
+5. [Technology Stack](#5-technology-stack)
+6. [End-to-End Workflow](#6-end-to-end-workflow)
+7. [Performance Benchmarks](#7-performance-benchmarks)
+8. [Installation](#8-installation)
+9. [Troubleshooting](#9-troubleshooting)
+10. [Testing and Verification](#10-testing-and-verification)
+11. [Documentation Index](#11-documentation-index)
+12. [Ethical, Clinical and Regulatory Notice](#12-ethical-clinical-and-regulatory-notice)
+13. [Known Limitations](#13-known-limitations)
+14. [License, Third-Party Components and Citation](#14-license-third-party-components-and-citation)
 
 ---
 
 ## 1. Introduction
 
-Thoracic Computed Tomography (CT) is the primary non-invasive diagnostic modality for evaluating pulmonary pathology, including chronic obstructive pulmonary disease (COPD), idiopathic pulmonary fibrosis (IPF), COVID-19 pneumonitis, and thoracic malignancies. A typical volumetric helical chest CT scan consists of hundreds of high-resolution axial cross-sections containing tens of millions of voxels. Manual delineation of bilateral lungs and five anatomical lobes is tedious, subject to intra- and inter-reader variability, and prohibitive in large-scale clinical cohorts.
+Thoracic computed tomography (CT) is a primary imaging modality for evaluating pulmonary conditions such as COPD, pulmonary fibrosis, pneumonitis and thoracic malignancy. A single helical chest CT holds hundreds of axial slices and tens of millions of voxels. Manually delineating both lungs and the five anatomical lobes is slow, varies between readers, and does not scale to large cohorts.
 
-**PulmoVision AI** solves this research bottleneck by delivering a cohesive, web-based medical imaging workstation that unifies:
-1. **Robust Medical Ingestion:** Support for native DICOM series archives and NIfTI volumes with mathematical slice sorting along normal projection vectors to support oblique acquisitions without slice gaps.
-2. **Standardized Coordinate Systems:** Strict preservation of continuous patient physical coordinates (LPS+ canonicalization), calibrated Hounsfield Units ($\text{HU} = m \cdot \text{pixel} + b$), and voxel spacing.
-3. **Deep Learning Segmentation:** CPU-optimized integration of peer-reviewed ResNet-34 U-Nets (**LungMask**) for automated bilateral lung separation and five-lobe anatomical compartmentalization.
-4. **Synchronous 2D Multi-Planar Reconstruction (MPR):** Real-time Axial, Coronal, and Sagittal slice extraction with low-latency binary Int16 streaming, synchronized tri-planar crosshairs, and live cursor HU probe.
-5. **Continuous 3D Surface Reconstruction:** Lewiner Marching Cubes triangulation generating physical-space ($\text{mm}$) meshes rendered with Three.js WebGL and anatomical camera presets.
-6. **Quantitative Parenchymal Morphometry:** Automated integration of total and lobar physical volumes ($\text{mL}$ and $\text{mm}^3$) alongside tissue attenuation statistics (mean, standard deviation, density min/max).
-7. **Clinical Research Reporting:** Automated generation of formatted PDF research reports and JSON metrics.
+**PulmoVision AI** is a web-based imaging workstation that brings the whole research workflow into one application:
+
+| Capability | Description |
+| :--- | :--- |
+| **Medical data ingestion** | Native DICOM series archives (`.zip`) and NIfTI volumes (`.nii`, `.nii.gz`) with validation. |
+| **Geometry preservation** | Canonical LPS+ orientation, calibrated Hounsfield Units (HU = m·pixel + b), exact voxel spacing and direction cosines. |
+| **Deep learning segmentation** | CPU-friendly integration of [LungMask](https://github.com/JoHof/lungmask) U-Nets for left/right lung and five-lobe segmentation. |
+| **Multi-planar reconstruction** | Synchronized axial, coronal and sagittal views with low-latency binary slice streaming and a live HU probe. |
+| **3D surface rendering** | Marching Cubes meshes in physical millimetres, rendered with Three.js. |
+| **Quantitative morphometry** | Total and per-lobe volumes (mL, mm³) and attenuation statistics. |
+| **Reporting** | PDF research reports, JSON metrics and NIfTI mask export. |
 
 ---
 
 ## 2. Key Features
 
-### Implemented & Verified Capabilities
-- [x] **Medical Data Ingestion:** Validates and ingests both compressed NIfTI (`.nii`, `.nii.gz`) and complete volumetric DICOM series (`.zip`).
-- [x] **Oblique DICOM Ordering:** Sorts slices using `ImagePositionPatient` projected onto the slice normal vector $\mathbf{n} = \mathbf{F} \times \mathbf{R}$, asserting uniform slice spacing ($\epsilon \le 0.05\text{ mm}$).
-- [x] **Canonical LPS+ Alignment:** Standardizes internal spatial representation to Left-Posterior-Superior while preserving exact native geometry metadata for export.
-- [x] **Bilateral Lung AI Segmentation (`lungmask_r231`):** Deep 2D ResNet-34 U-Net segmenting Right and Left Lungs with 3D morphological connected-component postprocessing.
-- [x] **Five-Lobe Anatomical Segmentation (`lungmask_ltrclobes`):** Compartmentalizes the 5 anatomical lobes (RUL, RML, RLL, LUL, LLL).
-- [x] **Hardware-Bounded Memory Guardrails:** Verified execution on $\le 8\text{ GB}$ RAM machines using single-worker processing, batch-size limits (`4`), and thread throttling (`torch.set_num_threads(6)`). Peak process RSS capped at $\sim 1.1\text{ GB}$.
-- [x] **Windows Python 3.12 SSL Resolution:** Embedded `certifi` injection for model weight downloads from GitHub Releases with SHA-256 checksum verification.
-- [x] **Low-Latency Binary Int16 Streaming:** Serves raw calibrated HU slices via `application/octet-stream` with spatial headers (`X-Slice-Width`, `X-Spacing-Horizontal-MM`), bypassing JSON serialization overhead.
-- [x] **Synchronized Multi-Planar Reconstruction (MPR):** HTML5 Canvas2D viewports for Axial, Coronal, and Sagittal planes with physical aspect ratio scaling.
-- [x] **Interactive Window / Level (W/L):** Dynamic contrast/brightness adjustments and one-click standard radiology presets (*Lung Parenchyma*, *Mediastinum*, *Thoracic Bone*, *Soft Tissue*).
-- [x] **Quantitative 2D Measurement Calipers:** Real-time distance rulers ($\text{mm}$), anatomical angle calipers ($^\circ$), and elliptical/rectangular ROI attenuation probes ($\text{HU} \pm \text{std}$, $\text{mm}^2$).
-- [x] **Continuous 3D Surface Mesh Generation:** Extracts isosurfaces at $\tau = 0.5$ via Lewiner Marching Cubes, centered in physical millimeter space.
-- [x] **WebGL Three.js 3D Viewer:** Features Phong specular shading, studio lighting, camera auto-framing, orbital controls, wireframe mode, and anatomical projection presets (ANT, POST, R-LAT, L-LAT, SUP).
-- [x] **Quantitative Volumetrics & HU Attenuation:** Calculates physical volumes ($V = N \cdot V_{\text{voxel}}$ in $\text{mL}$ and $\text{mm}^3$) and parenchymal attenuation distributions.
-- [x] **Reporting & Export Center:** Exports formatted PDF research reports via ReportLab, programmatic JSON metrics, and native-geometry UInt8 NIfTI segmentation masks.
-- [x] **Security & Auditability:** Argon2id password hashing, stateless JWT session tokens, user-isolated study tenancy, and immutable cryptographic audit logging.
+### Implemented
 
-### Partially Implemented & Extension Points
-- [ ] **GPU Acceleration Auto-Switching:** Core pipeline runs on CPU with explicit thread capping. GPU CUDA tensors are supported in PyTorch but default to CPU for universal accessibility on standard laptops.
-- [ ] **Interactive Ground Truth Comparison UI:** Backend calculates Dice, IoU, HD95, and ASD when reference masks are provided; full client-side side-by-side comparison UI is scheduled for v1.3.
+**Data and preprocessing**
+- Ingestion and validation of NIfTI and DICOM series, including DICOM part-10 header checks and a SHA-256 checksum of every upload.
+- Oblique-acquisition support: slices are ordered by projecting `ImagePositionPatient` onto the slice normal **n** = **F** × **R**, with uniform spacing enforced (tolerance ≤ 0.05 mm).
+- Canonical **LPS+** internal representation, with native geometry preserved for export.
 
-### Planned Capabilities
-- [ ] **PACS DICOMweb Integration:** Query/Retrieve support via DICOMweb C-MOVE / C-FIND.
-- [ ] **Airway & Vessel Extraction:** Graph-based central airway tree and pulmonary vascular segmentation.
-- [ ] **MONAI 3D Swin-UNETR:** Optional 3D transformer model engine for multi-GPU institutional servers.
+**AI segmentation**
+- `lungmask_r231`: right and left lung, with 3D connected-component and void-filling postprocessing.
+- `lungmask_ltrclobes`: five lobes (RUL, RML, RLL, LUL, LLL).
+- Memory guardrails for 8 GB machines: single worker, batch size 4, capped CPU threads (peak process RSS about 1.1 GB in our benchmarks).
+- Verified model-weight download (embedded `certifi` for Windows / Python 3.12, SHA-256 checksum check).
+
+**Viewer**
+- Binary Int16 slice streaming (`application/octet-stream`) with spatial headers such as `X-Slice-Width` and `X-Spacing-Horizontal-MM`.
+- Synchronized tri-planar MPR with physical aspect-ratio scaling and crosshairs.
+- Window/level control with presets: *Lung*, *Mediastinum*, *Bone*, *Soft Tissue*.
+- Measurement tools: distance (mm), angle (°), elliptical and rectangular ROI statistics (mean ± SD HU, area).
+- Three.js 3D viewer: Phong shading, auto-framing, orbit controls, wireframe mode and anatomical presets (ANT, POST, R-LAT, L-LAT, SUP).
+
+**Quantification and export**
+- Physical volume: `V (mL) = N × (sx · sy · sz) / 1000`, plus mean, standard deviation, minimum and maximum HU.
+- ReportLab PDF reports, JSON metrics and UInt8 NIfTI masks in native geometry.
+
+**Security and auditability**
+- Argon2id password hashing, stateless JWT sessions, per-user study isolation, and cryptographically chained audit logging.
+
+### In progress
+
+| Item | Status |
+| :--- | :--- |
+| GPU auto-switching | PyTorch CUDA is supported; the default is CPU for portability. |
+| Ground-truth comparison UI | Backend computes Dice, IoU, HD95 and ASD when a reference mask is supplied; side-by-side UI is planned for v1.3. |
+
+### Roadmap
+
+- [ ] DICOMweb integration (QIDO-RS / WADO-RS)
+- [ ] Airway and pulmonary vessel extraction
+- [ ] Optional MONAI 3D Swin UNETR engine for multi-GPU servers
 
 ---
 
-## 3. Workstation & Clinical Visual Interface
+## 3. Application Preview
 
 <div align="center">
 
-### Clinical Radiology Workstation (Synchronized MPR & 3D Marching Cubes)
-<img src="./docs/assets/pulmovision_workstation.png" alt="PulmoVision AI Radiology Workstation" width="900" style="border-radius: 10px; border: 1px solid #263445; box-shadow: 0 15px 20px -5px rgba(0, 0, 0, 0.4);" />
+**Research dashboard**
 
-<br/><br/>
+<img src="./docs/assets/pulmovision_dashboard.png" alt="PulmoVision AI research dashboard" width="900" />
 
-### Research Dashboard & Empirical Telemetry
-<img src="./docs/assets/pulmovision_dashboard.png" alt="PulmoVision AI Research Dashboard" width="900" style="border-radius: 10px; border: 1px solid #263445; box-shadow: 0 15px 20px -5px rgba(0, 0, 0, 0.4);" />
+*Study management, segmentation activity and analysis review.*
+
+<br/>
+
+**Imaging workstation**
+
+<img src="./docs/assets/pulmovision_workstation.png" alt="PulmoVision AI imaging workstation" width="900" />
+
+*Synchronized MPR, segmentation overlays and 3D reconstruction.*
 
 </div>
 
@@ -125,48 +141,47 @@ Thoracic Computed Tomography (CT) is the primary non-invasive diagnostic modalit
 
 ```mermaid
 flowchart TD
-    subgraph Client ["Frontend (React 18 + Vite + Three.js)"]
+    subgraph Client ["Frontend: React 18 + Vite + Three.js"]
         UI["Landing & Dashboard"]
         WS["Radiology Workspace"]
-        MPR["2D MPR Viewports (Axial / Coronal / Sagittal)"]
-        View3D["3D Marching Cubes Viewer (Three.js)"]
-        Analysis["Quantitative Analysis & Charts"]
+        MPR["2D MPR Viewports"]
+        View3D["3D Viewer (Three.js)"]
+        Analysis["Quantitative Analysis"]
         Reports["Report & Export Center"]
     end
 
-    subgraph API ["FastAPI 0.115 Backend"]
-        AuthRouter["/api/v1/auth (Argon2id + JWT)"]
-        StudyRouter["/api/v1/studies & /scans"]
+    subgraph API ["Backend: FastAPI"]
+        AuthRouter["/api/v1/auth"]
+        StudyRouter["/api/v1/studies, /scans"]
         SegRouter["/api/v1/segmentation"]
-        ViewerRouter["/api/v1/viewer (Binary Octet Stream)"]
+        ViewerRouter["/api/v1/viewer (binary)"]
         ReportRouter["/api/v1/reports"]
     end
 
-    subgraph ML ["Medical Computing & AI Engine"]
-        Ingest["DICOM / NIfTI Ingestion & Validator"]
-        SITK["SimpleITK LPS+ Canonical Standardizer"]
-        LungMask["LungMask ResNet-34 U-Net (r231 & ltrclobes)"]
-        PostProc["3D Morphological Cleaner & Void Filler"]
-        MC["Lewiner Marching Cubes Triangulator"]
-        Metrics["Parenchymal Volumetrics & HU Integrator"]
+    subgraph ML ["Medical Computing Engine"]
+        Ingest["DICOM / NIfTI Ingestion & Validation"]
+        SITK["SimpleITK LPS+ Standardizer"]
+        LungMask["LungMask U-Net (r231, ltrclobes)"]
+        PostProc["3D Morphological Postprocessing"]
+        MC["Marching Cubes Mesher"]
+        Metrics["Volumetrics & HU Statistics"]
     end
 
-    subgraph Storage ["Storage & Persistence Tier"]
-        DB[("SQLite (Dev) / PostgreSQL (Prod) - 9 Tables")]
-        DiskStore[("Isolated Volume & Mask Disk Store")]
-        ModelCache[("Verified SHA-256 Weights Cache")]
+    subgraph Storage ["Persistence"]
+        DB[("SQLite dev / PostgreSQL prod")]
+        DiskStore[("Volume & Mask Store")]
+        ModelCache[("Checksum-verified Weights Cache")]
     end
 
     UI --> AuthRouter
     WS --> StudyRouter
     WS --> SegRouter
     MPR --> ViewerRouter
-    ThreeJS --> ViewerRouter
+    View3D --> ViewerRouter
     Analysis --> ReportRouter
+    Reports --> ReportRouter
 
-    StudyRouter --> Ingest
-    Ingest --> SITK
-    SITK --> DiskStore
+    StudyRouter --> Ingest --> SITK --> DiskStore
     SegRouter --> LungMask
     LungMask <--> ModelCache
     LungMask --> PostProc
@@ -181,219 +196,161 @@ flowchart TD
 
 ## 5. Technology Stack
 
-| Domain | Technology | Version | Purpose |
+| Layer | Technology | Version | Role |
 | :--- | :--- | :--- | :--- |
-| **Frontend Framework** | React | `^18.3.1` | Component-driven user interface |
-| **Build Tool** | Vite | `^5.4.11` | Hot module replacement & production bundling |
-| **Language** | TypeScript | `^5.6.3` | Type-safe DTOs, API contracts, and coordinate math |
-| **Styling** | Tailwind CSS | `^3.4.15` | Dark radiology theme and responsive viewport grid |
-| **3D Graphics** | Three.js | `^0.170.0` | WebGL continuous Marching Cubes rendering |
-| **Backend Framework** | FastAPI | `0.115.6` | Asynchronous REST API & binary streaming endpoints |
-| **ASGI Server** | Uvicorn | `0.32.1` | High-throughput asynchronous ASGI server |
-| **Database ORM** | SQLAlchemy | `2.0.36` | Normalized 9-table relational database schema |
-| **Validation** | Pydantic V2 | `2.10.4` | Request/response data validation and DTOs |
-| **Deep Learning** | PyTorch | `2.5.1+cpu` | Neural network tensor inference |
-| **Lung Segmentation** | LungMask | `0.2.22` | ResNet-34 U-Net bilateral and lobar segmentation |
-| **Medical Imaging** | SimpleITK | `2.4.0` | Direction cosine manipulation, LPS orientation, and I/O |
-| **DICOM Parsing** | pydicom | `3.0.1` | DICOM part-10 metadata parsing & tag extraction |
-| **Surface Meshing** | scikit-image | `0.24.0` | Lewiner Marching Cubes isosurface extraction |
-| **Scientific Computing**| NumPy / SciPy | `2.1.3` / `1.14.1` | Voxel matrices, HU math, and connected components |
-| **PDF Generation** | ReportLab | `4.2.5` | Programmatic clinical research report generation |
-| **Password Security** | Argon2-cffi | `23.1.0` | Password hashing ($t=2, m=100\text{MB}, p=8$) |
+| Frontend | React | `^18.3.1` | Component-based UI |
+| Build | Vite | `^5.4.11` | Dev server and production bundling |
+| Language | TypeScript | `^5.6.3` | Typed API contracts and coordinate math |
+| Styling | Tailwind CSS | `^3.4.15` | Dark radiology theme, responsive layout |
+| 3D | Three.js | `^0.170.0` | WebGL mesh rendering |
+| Backend | FastAPI | `0.115.6` | REST API and binary streaming |
+| Server | Uvicorn | `0.32.1` | ASGI server |
+| ORM | SQLAlchemy | `2.0.36` | Nine-table relational schema |
+| Validation | Pydantic | `2.10.4` | Request/response models |
+| Deep learning | PyTorch | `2.5.1+cpu` | Inference |
+| Segmentation | LungMask | `0.2.22` | Lung and lobe U-Nets |
+| Imaging | SimpleITK | `2.4.0` | I/O, orientation, direction cosines |
+| DICOM | pydicom | `3.0.1` | Metadata parsing |
+| Meshing | scikit-image | `0.24.0` | Lewiner Marching Cubes |
+| Numerics | NumPy / SciPy | `2.1.3` / `1.14.1` | Voxel math, connected components |
+| Reports | ReportLab | `4.2.5` | PDF generation |
+| Auth | Argon2-cffi | `23.1.0` | Password hashing |
 
 ---
 
-## 6. How PulmoVision AI Works: End-to-End Workflow
+## 6. End-to-End Workflow
 
-### A. Study Creation
-Studies group related CT acquisitions for an anonymous subject code (`PV-SUBJ-104`). Users configure protocol titles and clinical acquisition notes. Scans and segmentation jobs inherit study ownership.
+```text
+Create study → Upload & validate → Standardize (HU, LPS+) → Segment → Review (MPR + 3D) → Quantify → Export
+```
 
-### B. CT Scan Upload & Validation
-The system accepts `.nii`, `.nii.gz`, and `.zip` DICOM archives. During upload:
-1. Asserts valid DICOM part-10 headers (`DICM` tag) or valid NIfTI magic bytes.
-2. Extracts matrix dimensions, voxel spacing, origin, and direction cosines.
-3. Checks for minimum slice count ($\ge 4$) and coplanarity.
-4. Generates an immutable SHA-256 checksum of the raw file.
-
-### C. Preprocessing & Oblique Coordinate Handling
-To guarantee spatial metadata integrity:
-* **Oblique Slices:** For DICOM series with gantry tilt, slices are sorted by projecting `ImagePositionPatient` onto the unit normal vector $\mathbf{n} = \mathbf{F} \times \mathbf{R}$:
-  $$S_i = \mathbf{P}_i \cdot (\mathbf{F} \times \mathbf{R})$$
-  The pipeline enforces slice gap tolerance ($\le 0.05\text{ mm}$), rejecting incomplete series.
-* **HU Calibration:** Calibrates integer pixels to physical Hounsfield Units: $\text{HU} = m \cdot \text{pixel} + b$.
-* **Canonical Standardization:** Standardizes coordinates to **LPS+** using SimpleITK, saving memory-mapped Int16 volumes for instant random-access slicing.
-
-### D. AI Segmentation Pipeline
-1. Input volumes are resampled and clamped to the standard parenchymal range.
-2. The ResNet-34 U-Net generates slice-by-slice probability maps under `torch.inference_mode()`.
-3. Postprocessing executes 3D connected-component labeling and morphological void filling to eliminate spurious extrapulmonary components and preserve internal vessels.
-4. Native matrix geometry is restored via `mask_sitk.CopyInformation(native_image)`.
-
-### E. 2D Multi-Planar Reconstruction (MPR)
-The frontend requests raw binary Int16 slices from `/api/v1/viewer/scans/{id}/slice?plane={plane}&index={index}`.
-* HTML5 Canvas viewports scale slices according to physical aspect ratios ($spacingVertMM / spacingHorizMM$).
-* Window/Level mapping transforms 16-bit HU to 8-bit monitor RGB.
-* Synchronized crosshairs translate cursor coordinates between Axial, Coronal, and Sagittal views.
-
-### F. 3D Surface Reconstruction (Marching Cubes)
-* The backend runs the **Lewiner Marching Cubes** algorithm at threshold $\tau = 0.5$ on each anatomical label.
-* Vertices are converted to continuous physical millimeters and centered relative to the volume's physical bounding box.
-* Three.js renders the resulting triangle buffers with Phong specular illumination, camera auto-framing, and interactive turntable orbit controls.
-
-### G. Quantitative Morphometry
-* **Physical Volume:** Total segmented voxels $N$ are integrated over physical voxel volume:
-  $$V_{\text{voxel}} = s_x \times s_y \times s_z\text{ mm}^3, \quad \text{Volume (mL)} = \frac{N \times V_{\text{voxel}}}{1000.0}$$
-* **HU Statistics:** Computes mean attenuation ($\mu$), standard deviation ($\sigma$), and density bounds across segmented parenchyma.
-
-### H. Reports & Exports
-Users can export:
-1. **PDF Research Reports:** Comprehensive multi-page reports generated with ReportLab.
-2. **JSON Telemetry:** Machine-readable metrics for batch analysis in Python, R, or pandas.
-3. **NIfTI Masks:** Raw 3D UInt8 `.nii.gz` binary masks with native direction cosines and spacing preserved.
+1. **Study creation.** Studies group acquisitions under an anonymous subject code (for example `PV-SUBJ-104`). Scans and jobs inherit study ownership.
+2. **Upload and validation.** The server checks DICOM `DICM` headers or NIfTI magic bytes, extracts dimensions, spacing, origin and direction, requires at least 4 coplanar slices, and stores a SHA-256 checksum.
+3. **Preprocessing.** Slices are ordered along the normal vector, integer pixels are converted to HU, and the volume is standardized to LPS+ and saved as a memory-mapped Int16 array for fast random access.
+4. **Segmentation.** Slice-wise probability maps are produced under `torch.inference_mode()`, then 3D connected-component labelling and void filling remove extrapulmonary fragments while keeping internal vessels. Native geometry is restored with `CopyInformation`.
+5. **2D review.** The viewer requests raw slices from `/api/v1/viewer/scans/{id}/slice?plane={plane}&index={index}`, applies window/level in the browser and keeps the three planes synchronized.
+6. **3D reconstruction.** Marching Cubes runs per anatomical label at an iso-level of 0.5, and vertices are placed in physical millimetres.
+7. **Quantification.** Volumes and HU statistics are computed from the label maps and voxel spacing.
+8. **Export.** PDF report, JSON metrics, or NIfTI masks.
 
 ---
 
-## 7. Empirical Hardware Benchmarks
+## 7. Performance Benchmarks
 
-Evaluated on the reference host (**HP-SWAGAT**, 12th Gen Intel Core i5-1235U, 10 cores / 12 threads, **7.68 GB physical RAM**, Windows 11):
+Reference host: 12th Gen Intel Core i5-1235U (10 cores / 12 threads), 7.68 GB RAM, Windows 11, CPU-only inference.
 
-| Benchmark Tier | Volume Dimensions ($Z \times Y \times X$) | Batch Size | Inference Time | Latency / Slice | Marching Cubes Time | Peak Process RSS | Dice vs. Phantom GT |
+| Tier | Volume (Z × Y × X) | Batch | Inference | Per slice | Mesh | Peak RSS | Dice vs. phantom |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Tier 1 (32 Slices)** | $32 \times 256 \times 256$ | `4` | **32.68 s** | `1021.1 ms` | `0.202 s` | **1,066.64 MB** | **0.9764** |
-| **Tier 2 (64 Slices)** | $64 \times 256 \times 256$ | `4` | **61.32 s** | `958.2 ms` | `0.379 s` | **1,105.12 MB** | **0.9769** |
+| 1 | 32 × 256 × 256 | 4 | 32.68 s | 1021 ms | 0.20 s | 1,067 MB | 0.9764 |
+| 2 | 64 × 256 × 256 | 4 | 61.32 s | 958 ms | 0.38 s | 1,105 MB | 0.9769 |
+
+> [!NOTE]
+> Dice values are measured against **synthetic phantom** ground truth. They verify the pipeline's geometry and plumbing; they are **not** a clinical accuracy claim and should not be compared with published results on patient data. See [Known Limitations](#13-known-limitations).
 
 ---
 
-## 8. Installation & Running Guide
+## 8. Installation
 
 ### Prerequisites
-* **Operating System:** Windows 11 (primary verified environment), Windows 10, Ubuntu 22.04 LTS, or macOS.
-* **Python:** Version `3.10`, `3.11`, or `3.12` (Python 3.12.3 verified).
-* **Node.js:** Version `18.x` or `20.x` LTS (`v20.x` recommended) with `npm`.
-* **Git:** Installed and available on your PATH.
 
----
+| Requirement | Version |
+| :--- | :--- |
+| OS | Windows 10/11, Ubuntu 22.04+, or macOS |
+| Python | 3.10, 3.11 or 3.12 |
+| Node.js | 18 or 20 LTS (20 recommended) |
+| Git | any recent version |
 
-### Method 1: Local Development Setup (Windows 11)
+### Option A: Local development on Windows (PowerShell)
 
-#### 1. Clone the Repository
 ```powershell
 git clone https://github.com/Swagat744/PulmoVision.git
-cd PulmoVision
-```
+cd PulmoVision\backend
 
-#### 2. Backend Setup
-```powershell
-# Navigate to backend directory
-cd D:\PulmoVision\backend
-
-# Create virtual environment
 python -m venv .venv
-
-# Activate virtual environment
 .\.venv\Scripts\Activate.ps1
-
-# Upgrade pip and install wheel
 python -m pip install --upgrade pip setuptools wheel
 
-# Install PyTorch CPU first (ensures lightweight CPU binary)
+# Install the CPU build of PyTorch first
 pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
-
-# Install all backend dependencies
 pip install -r requirements.txt
-
-# Configure environment variables
 Copy-Item .env.example .env
-```
 
-#### 3. Start Backend Server
-```powershell
-# Ensure you are in backend directory with .venv activated
 python -m uvicorn main:app --host 127.0.0.1 --port 8000 --reload
 ```
-* Backend API: `http://127.0.0.1:8000`
-* Swagger UI Docs: `http://127.0.0.1:8000/docs`
-* Health Endpoint: `http://127.0.0.1:8000/api/v1/health`
 
-#### 4. Frontend Setup
-In a new terminal window:
+In a second terminal:
+
 ```powershell
-# Navigate to frontend directory
-cd D:\PulmoVision\frontend
-
-# Install dependencies
+cd PulmoVision\frontend
 npm install
-
-# Start Vite development server
 npm run dev
 ```
-* Frontend Application: `http://localhost:5173`
 
----
+| Service | URL |
+| :--- | :--- |
+| Frontend | http://localhost:5173 |
+| API | http://127.0.0.1:8000 |
+| Swagger UI | http://127.0.0.1:8000/docs |
+| Health check | http://127.0.0.1:8000/api/v1/health |
 
-### Method 2: Linux Setup (Ubuntu 22.04 LTS)
+### Option B: Linux / macOS
 
 ```bash
-# Clone repository
 git clone https://github.com/Swagat744/PulmoVision.git
-cd PulmoVision
+cd PulmoVision/backend
 
-# Backend setup
-cd backend
-python3 -m venv .venv
-source .venv/bin/activate
+python3 -m venv .venv && source .venv/bin/activate
 pip install --upgrade pip
 pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
 pip install -r requirements.txt
 cp .env.example .env
-uvicorn main:app --host 0.0.0.0 --port 8000 &
+uvicorn main:app --host 127.0.0.1 --port 8000 &
 
-# Frontend setup
 cd ../frontend
 npm install
-npm run dev -- --host
+npm run dev
 ```
 
----
+### Option C: Docker Compose
 
-### Method 3: Docker Compose Setup
-
-Ensure Docker Desktop is installed and running:
 ```bash
-# Build and start all services
-docker compose up --build -d
-
-# View logs
-docker compose logs -f
-
-# Shutdown services
-docker compose down
+docker compose up --build -d   # build and start
+docker compose logs -f         # follow logs
+docker compose down            # stop
 ```
 
----
+### Configuration
 
-## 9. Common Troubleshooting
+Copy `backend/.env.example` to `backend/.env`. Settings most often adjusted:
 
-| Issue | Root Cause | Solution |
+| Variable | Purpose | Suggested value |
 | :--- | :--- | :--- |
-| **Windows SSL Error on Weight Download** | Python 3.12 missing root certificates on Windows | The embedded `lungmask_adapter.py` automatically injects `certifi.where()`. If manual download is preferred, place `.pth` weights into `backend/model_cache/`. |
-| **`NonUniformSliceSpacingError` on Upload** | Missing DICOM slices or variable slice gaps | Verify all series slices are present in the `.zip`. PulmoVision AI enforces strict slice spacing tolerance ($\epsilon \le 0.05\text{ mm}$). |
-| **Out-Of-Memory (OOM) during Inference** | Large scan matrix processed with excessive batch size | In `backend/.env`, set `INFERENCE_BATCH_SIZE=2` or `4` and verify `INFERENCE_CPU_THREADS=4` or `6`. |
-| **Port 8000 or 5173 Already in Use** | Orphaned background process holding the port | Terminate existing processes: `Stop-Process -Id (Get-NetTCPConnection -LocalPort 8000).OwningProcess -Force` |
-| **WebGL Context Lost in 3D Viewport** | Outdated graphics drivers or hardware acceleration disabled | Ensure hardware acceleration is enabled in your browser (`chrome://settings/system`). |
+| `INFERENCE_BATCH_SIZE` | Slices per forward pass; lower it to reduce memory | `2` to `4` |
+| `INFERENCE_CPU_THREADS` | CPU threads used by PyTorch | `4` to `6` |
 
 ---
 
-## 10. Verification & Testing
+## 9. Troubleshooting
 
-### Backend Unit & Integration Tests
-Run the comprehensive pytest suite:
-```powershell
-cd D:\PulmoVision\backend
-.\.venv\Scripts\Activate.ps1
+| Symptom | Likely cause | Resolution |
+| :--- | :--- | :--- |
+| SSL error while downloading weights (Windows) | Python 3.12 lacks root certificates | The adapter injects `certifi` automatically. Alternatively place the `.pth` files in `backend/model_cache/`. |
+| `NonUniformSliceSpacingError` on upload | Missing slices or uneven gaps in the series | Confirm the whole series is in the `.zip`; spacing tolerance is 0.05 mm. |
+| Out-of-memory during inference | Large volume or batch size too high | Set `INFERENCE_BATCH_SIZE=2` and `INFERENCE_CPU_THREADS=4` in `backend/.env`. |
+| Port 8000 or 5173 already in use | Orphaned process | PowerShell: `Stop-Process -Id (Get-NetTCPConnection -LocalPort 8000).OwningProcess -Force` |
+| WebGL context lost in the 3D view | Old graphics driver or hardware acceleration off | Update drivers and enable hardware acceleration in the browser. |
+
+---
+
+## 10. Testing and Verification
+
+**Backend**
+
+```bash
+cd backend
 pytest tests/ -v
 ```
-**Results (100% Passed):**
+
 ```text
 tests/test_integration_api_and_ai.py::test_complete_end_to_end_pulmovision_workflow PASSED
 tests/test_unit_medical_pipeline.py::test_oblique_dicom_slice_sorting_and_hu_calibration PASSED
@@ -403,18 +360,16 @@ tests/test_unit_medical_pipeline.py::test_morphometric_physical_volume_and_3d_me
 ======================== 5 passed in 33.74s ========================
 ```
 
-### Frontend TypeScript & Production Build
-Verify TypeScript type-checking and bundling:
-```powershell
-cd D:\PulmoVision\frontend
+**Frontend**
+
+```bash
+cd frontend
 npm run build
 ```
-**Results:**
+
 ```text
 ✓ 1604 modules transformed.
-dist/index.html                   0.88 kB │ gzip:   0.52 kB
-dist/assets/index-DyN1MrHG.css   38.99 kB │ gzip:   7.32 kB
-dist/assets/index-CSiZLJaO.js   938.97 kB │ gzip: 241.43 kB
+dist/assets/index-*.js   938.97 kB │ gzip: 241.43 kB
 ✓ built in 9.28s
 ```
 
@@ -422,50 +377,63 @@ dist/assets/index-CSiZLJaO.js   938.97 kB │ gzip: 241.43 kB
 
 ## 11. Documentation Index
 
-Detailed engineering documentation is located in the [`docs/`](./docs) directory:
-
-* [`docs/USER_GUIDE.md`](./docs/USER_GUIDE.md) — Step-by-step operational manual from registration to PDF report export.
-* [`docs/TECHNICAL_OVERVIEW.md`](./docs/TECHNICAL_OVERVIEW.md) — Technical handbook detailing coordinate systems, binary streaming, and math.
-* [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md) — Component diagrams and viewer architecture decision records.
-* [`docs/API_DOCUMENTATION.md`](./docs/API_DOCUMENTATION.md) — Full REST API specifications, DTOs, and binary streaming protocol.
-* [`docs/DATABASE_SCHEMA.md`](./docs/DATABASE_SCHEMA.md) — 9-table normalized SQLAlchemy 2.0 schema and relational diagrams.
-* [`docs/AI_MODEL_DOCUMENTATION.md`](./docs/AI_MODEL_DOCUMENTATION.md) — Neural network architectures, weights provenance, and benchmark telemetry.
-* [`docs/DATASET_DOCUMENTATION.md`](./docs/DATASET_DOCUMENTATION.md) — DICOM and NIfTI formatting, synthetic phantoms, and coordinate conventions.
-* [`docs/PREPROCESSING_PIPELINE.md`](./docs/PREPROCESSING_PIPELINE.md) — Oblique slice sorting, HU calibration, and SimpleITK LPS+ normalization.
-* [`docs/EVALUATION_METHODOLOGY.md`](./docs/EVALUATION_METHODOLOGY.md) — Spatial overlap metrics (Dice, IoU, HD95, ASD, RVD).
-* [`docs/TESTING.md`](./docs/TESTING.md) — Test suites, continuous integration, and test coverage.
-* [`docs/DEPLOYMENT.md`](./docs/DEPLOYMENT.md) — Production deployment guidelines, PostgreSQL, and Docker configuration.
-* [`docs/PROJECT_ROADMAP.md`](./docs/PROJECT_ROADMAP.md) — Implemented milestones and future research objectives.
-
----
-
-## 12. Ethical, Clinical & Regulatory Notice
-
-PulmoVision AI is an experimental prototype designed for scientific research and educational demonstration only.
-
-* **No Clinical Clearance:** It has not been approved by the U.S. FDA, European CE mark, or Indian CDSCO.
-* **Model Outputs Require Review:** Deep learning segmentations may produce false positives or false negatives, especially in cases of severe pleural thickening, bullous emphysema, or post-surgical anatomy.
-* **De-Identification Required:** Users must comply with HIPAA, GDPR, and local institutional review board (IRB) ethical guidelines when uploading CT imaging data. Real patient identifiers must be stripped prior to processing.
+| Document | Contents |
+| :--- | :--- |
+| [USER_GUIDE](./docs/USER_GUIDE.md) | Walkthrough from registration to report export |
+| [TECHNICAL_OVERVIEW](./docs/TECHNICAL_OVERVIEW.md) | Coordinate systems, binary streaming, mathematics |
+| [ARCHITECTURE](./docs/ARCHITECTURE.md) | Component diagrams and design decisions |
+| [API_DOCUMENTATION](./docs/API_DOCUMENTATION.md) | REST endpoints, DTOs, binary streaming protocol |
+| [DATABASE_SCHEMA](./docs/DATABASE_SCHEMA.md) | Nine-table schema and relationships |
+| [AI_MODEL_DOCUMENTATION](./docs/AI_MODEL_DOCUMENTATION.md) | Architectures, weight provenance, benchmarks |
+| [DATASET_DOCUMENTATION](./docs/DATASET_DOCUMENTATION.md) | DICOM/NIfTI formats, phantoms, conventions |
+| [PREPROCESSING_PIPELINE](./docs/PREPROCESSING_PIPELINE.md) | Slice ordering, HU calibration, LPS+ normalization |
+| [EVALUATION_METHODOLOGY](./docs/EVALUATION_METHODOLOGY.md) | Dice, IoU, HD95, ASD, RVD |
+| [TESTING](./docs/TESTING.md) | Test suites and coverage |
+| [DEPLOYMENT](./docs/DEPLOYMENT.md) | Production guidance, PostgreSQL, Docker |
+| [PROJECT_ROADMAP](./docs/PROJECT_ROADMAP.md) | Milestones and future work |
 
 ---
 
-## 13. License & Citation
+## 12. Ethical, Clinical and Regulatory Notice
 
-PulmoVision AI is distributed under the **Apache License 2.0**. See [`LICENSE`](./LICENSE) for full legal terms.
+- **No regulatory clearance.** PulmoVision AI has not been reviewed or approved by the U.S. FDA, under EU MDR/CE marking, or by India's CDSCO.
+- **Outputs require expert review.** Segmentations can contain false positives and false negatives, particularly with severe pleural thickening, bullous emphysema, large effusions or post-surgical anatomy.
+- **Data protection.** Upload only de-identified data, and comply with applicable law and your institutional ethics approvals (for example HIPAA, GDPR, India's DPDP Act, and IRB or ethics committee requirements).
+- **Not a diagnosis.** Nothing displayed by this software is a diagnosis or a treatment recommendation.
 
-### Academic Citation
-If you use PulmoVision AI or its segmentation algorithms in your academic research, please cite:
+---
+
+## 13. Known Limitations
+
+- The bundled segmentation models are third-party (LungMask) and were **not** retrained or clinically validated by this project.
+- Reported Dice scores use synthetic phantoms. Validation on independent, radiologist-annotated patient CT is still required before any performance claim.
+- Lobe segmentation can degrade when fissures are poorly visible or disease is dense.
+- Inference runs on CPU by default and takes roughly one second per slice on the reference laptop.
+- Airway and vessel segmentation are not yet available.
+
+---
+
+## 14. License, Third-Party Components and Citation
+
+PulmoVision AI is released under the **Apache License 2.0**; see [`LICENSE`](./LICENSE).
+
+> [!IMPORTANT]
+> **Third-party licenses.** LungMask is published under **GPL-3.0**. Because PulmoVision AI uses it, review license compatibility (and the licenses of all model weights and dependencies) before redistributing or commercializing this software.
+
+### Citation
+
+If you use PulmoVision AI or its segmentation models in academic work, please cite the LungMask paper:
 
 ```bibtex
 @article{hofmanninger2020automatic,
-  title={Automatic lung segmentation in routine imaging is primarily a data diversity problem, not a methodology problem},
-  author={Hofmanninger, Johannes and Prayer, Florian and Pan, Jeanny and R{\"o}hrich, Sebastian and Prosch, Helmut and Langs, Georg},
-  journal={European Radiology Experimental},
-  volume={4},
-  number={1},
-  pages={50},
-  year={2020},
-  publisher={SpringerOpen},
-  doi={10.1186/s41747-020-00173-2}
+  title     = {Automatic lung segmentation in routine imaging is primarily a data diversity problem, not a methodology problem},
+  author    = {Hofmanninger, Johannes and Prayer, Florian and Pan, Jeanny and R{\"o}hrich, Sebastian and Prosch, Helmut and Langs, Georg},
+  journal   = {European Radiology Experimental},
+  volume    = {4},
+  number    = {1},
+  pages     = {50},
+  year      = {2020},
+  publisher = {SpringerOpen},
+  doi       = {10.1186/s41747-020-00173-2}
 }
 ```
