@@ -1,0 +1,46 @@
+Apache License
+Version 2.0, January 2004
+http://www.apache.org/licenses/
+
+TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+1. Definitions.
+   "License" shall mean the terms and conditions for use, reproduction, and distribution as defined by Sections 1 through 9 of this document.
+   "Licensor" shall mean the copyright owner or entity authorized by the copyright owner that is granting the License.
+   "You" (or "Your") shall mean an individual or Legal Entity exercising permissions granted by this License.
+
+2. Grant of Copyright License. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable copyright license to reproduce, prepare Derivative Works of, publicly display, publicly perform, sublicense, and distribute the Work and such Derivative Works in Source or Object form.
+
+3. Grant of Patent License. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable patent license to make, have made, use, offer to sell, sell, import, and otherwise transfer the Work.
+
+4. Redistribution. You may reproduce and distribute copies of the Work or Derivative Works thereof in any medium, with or without modifications, and in Source or Object form, provided that You meet the conditions stated in the License.
+
+5. Submission of Contributions. Unless You explicitly state otherwise, any Contribution intentionally submitted for inclusion in the Work by You to the Licensor shall be under the terms and conditions of this License, without any additional terms or conditions.
+
+6. Trademarks. This License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor.
+
+7. Disclaimer of Warranty. Unless required by applicable law or agreed to in writing, Licensor provides the Work (and each Contributor provides its Contributions) on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE.
+
+8. Limitation of Liability. In no event and under no legal theory shall any Contributor be liable to You for damages, including any direct, indirect, special, incidental, or consequential damages of any character arising as a result of this License or out of the use or inability to use the Work.
+
+---
+
+### IMPORTANT MEDICAL & CLINICAL RESEARCH DISCLAIMER
+
+PulmoVision AI is developed strictly for **academic research, scientific evaluation, and educational demonstration purposes**. 
+
+1. **NOT A MEDICAL DEVICE:** PulmoVision AI has not been evaluated, cleared, or approved by the U.S. Food and Drug Administration (FDA), the European Medicines Agency (EMA), the Central Drugs Standard Control Organisation (CDSCO), or any other medical regulatory authority.
+2. **NO CLINICAL DIAGNOSIS:** This software is NOT designed, intended, or authorized to diagnose, monitor, prevent, or treat any medical disease, condition, or pulmonary pathology.
+3. **INDEPENDENT VERIFICATION REQUIRED:** All automated segmentations, anatomical contours, morphometric volumes, and Hounsfield Unit statistics must be independently reviewed and verified by qualified radiological and clinical professionals before any clinical or experimental conclusions are drawn.
+4. **DATA PRIVACY:** Users are solely responsible for ensuring that all medical imaging scans processed through PulmoVision AI are properly de-identified in full compliance with HIPAA, GDPR, and institutional ethical review standards.
+
+---
+
+### Third-Party Software & Model Licences
+
+- **LungMask (Hofmanninger et al., 2020):** Apache License 2.0 (weights `unet_r231` and `unet_ltrclobes`).
+- **SimpleITK / ITK:** Apache License 2.0.
+- **NiBabel / PyDicom:** MIT License / BSD License.
+- **FastAPI / Pydantic / SQLAlchemy:** MIT License.
+- **React / Vite / Three.js / Tailwind CSS:** MIT License.
+- **Innerscene 3D Anatomical Parts (`lungs.glb`):** Creative Commons Zero (CC0 1.0 Universal) — Public Domain.

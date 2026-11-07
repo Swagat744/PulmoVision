@@ -1,0 +1,47 @@
+{
+  "host": {
+    "os": "Windows 11",
+    "processor": "Intel64 Family 6 Model 154 Stepping 4, GenuineIntel",
+    "logical_cores": 12,
+    "total_ram_gb": 7.68,
+    "baseline_rss_mb": 288.52
+  },
+  "benchmarks": [
+    {
+      "tier": "Tier 1 (32 x 256 x 256)",
+      "shape_zyx": [
+        32,
+        256,
+        256
+      ],
+      "batch_size": 4,
+      "inference_time_sec": 32.676,
+      "ms_per_slice": 1021.1,
+      "marching_cubes_mesh_sec": 0.202,
+      "peak_rss_mb": 1066.64,
+      "geometry_verified": true,
+      "dice_vs_phantom_gt": 0.9764,
+      "hd95_mm_vs_phantom_gt": 0.0,
+      "total_lung_volume_ml": 613.19,
+      "mesh_structures_extracted": 2
+    },
+    {
+      "tier": "Tier 2 (64 x 256 x 256)",
+      "shape_zyx": [
+        64,
+        256,
+        256
+      ],
+      "batch_size": 4,
+      "inference_time_sec": 61.322,
+      "ms_per_slice": 958.2,
+      "marching_cubes_mesh_sec": 0.379,
+      "peak_rss_mb": 1105.12,
+      "geometry_verified": true,
+      "dice_vs_phantom_gt": 0.9769,
+      "hd95_mm_vs_phantom_gt": 0.0,
+      "total_lung_volume_ml": 1005.83,
+      "mesh_structures_extracted": 2
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: pulmovision
+      POSTGRES_PASSWORD: pulmovision_dev_password
+      POSTGRES_DB: pulmovision
+    volumes:
+      - pv_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pulmovision"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql+psycopg2://pulmovision:pulmovision_dev_password@db:5432/pulmovision
+      JWT_SECRET_KEY: pulmovision-docker-secret-key-change-in-production
+      INFERENCE_DEVICE: cpu
+      INFERENCE_BATCH_SIZE: 4
+      INFERENCE_CPU_THREADS: 6
+      MAX_CONCURRENT_JOBS: 1
+      CORS_ORIGINS: http://localhost:5173,http://127.0.0.1:5173
+    volumes:
+      - pv_storage:/app/storage
+      - pv_models:/app/model_cache
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "5173:5173"
+
+volumes:
+  pv_pgdata:
+  pv_storage:
+  pv_models:
+

@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #080B10;
+    color: #F8FAFC;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    overflow-x: hidden;
+  }
+
+  code, pre, .font-mono {
+    font-family: "IBM Plex Mono", Consolas, monospace;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #080B10;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #222F43;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #0D9488;
+  }
+}
+
+.ws-scroll::-webkit-scrollbar-track {
+  background: #080B10;
+}
+
+.ws-scroll::-webkit-scrollbar-thumb {
+  background: #222F43;
+  border-radius: 3px;
+}
+
+.ws-scroll::-webkit-scrollbar-thumb:hover {
+  background: #0D9488;
+}
+
+/* Glassmorphism and gradient helpers */
+.glass-panel {
+  background: rgba(15, 21, 35, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(38, 52, 69, 0.8);
+}
+
+.glass-panel-elevated {
+  background: rgba(22, 31, 48, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(45, 59, 82, 0.9);
+}
