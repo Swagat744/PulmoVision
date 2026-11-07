@@ -38,3 +38,4 @@ PulmoVision AI is built from the ground up with research privacy principles:
   ```
 - **Password Hashing:** Passwords are never stored in plaintext. PulmoVision AI employs **Argon2id** (`argon2-cffi`) with strict memory and time costs ($t=2, m=102400\text{ KiB}, p=8$).
 - **Role-Based Access Control (RBAC):** API endpoints enforce user authentication via Bearer tokens (`Authorization: Bearer <token>`). Studies, scans, and results are isolated by user ownership.
+

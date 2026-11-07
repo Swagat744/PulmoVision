@@ -235,3 +235,4 @@ Navigate to the **Reports & Export** view:
      * Peak memory consumption history.
      * Model cache status and verified SHA-256 integrity hashes.
      * Cryptographic audit log tracking all user logins, scan uploads, and report generations.
+

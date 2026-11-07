@@ -20,7 +20,7 @@
 
 <br/><br/>
 
-<img src="./docs/assets/pulmovision_hero.jpg" alt="PulmoVision AI — Thoracic CT Segmentation & 3D Analytics Platform" width="850" style="border-radius: 12px; border: 1px solid #263445; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);" />
+<img src="./docs/assets/pulmovision_hero.png" alt="PulmoVision AI — Thoracic CT Segmentation & 3D Analytics Platform" width="850" style="border-radius: 12px; border: 1px solid #263445; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);" />
 
 </div>
 
@@ -81,7 +81,23 @@ Thoracic Computed Tomography (CT) is the primary non-invasive diagnostic modalit
 
 ---
 
-## 3. System Architecture
+## 3. Workstation & Clinical Visual Interface
+
+<div align="center">
+
+### Clinical Radiology Workstation (Synchronized MPR & 3D Marching Cubes)
+<img src="./docs/assets/pulmovision_workstation.png" alt="PulmoVision AI Radiology Workstation" width="900" style="border-radius: 10px; border: 1px solid #263445; box-shadow: 0 15px 20px -5px rgba(0, 0, 0, 0.4);" />
+
+<br/><br/>
+
+### Research Dashboard & Empirical Telemetry
+<img src="./docs/assets/pulmovision_dashboard.png" alt="PulmoVision AI Research Dashboard" width="900" style="border-radius: 10px; border: 1px solid #263445; box-shadow: 0 15px 20px -5px rgba(0, 0, 0, 0.4);" />
+
+</div>
+
+---
+
+## 4. System Architecture
 
 ```mermaid
 flowchart TD
@@ -139,7 +155,7 @@ flowchart TD
 
 ---
 
-## 4. Technology Stack
+## 5. Technology Stack
 
 | Domain | Technology | Version | Purpose |
 | :--- | :--- | :--- | :--- |
@@ -163,7 +179,7 @@ flowchart TD
 
 ---
 
-## 5. How PulmoVision AI Works: End-to-End Workflow
+## 6. How PulmoVision AI Works: End-to-End Workflow
 
 ### A. Study Creation
 Studies group related CT acquisitions for an anonymous subject code (`PV-SUBJ-104`). Users configure protocol titles and clinical acquisition notes. Scans and segmentation jobs inherit study ownership.
@@ -213,7 +229,7 @@ Users can export:
 
 ---
 
-## 6. Empirical Hardware Benchmarks
+## 7. Empirical Hardware Benchmarks
 
 Evaluated on the reference host (**HP-SWAGAT**, 12th Gen Intel Core i5-1235U, 10 cores / 12 threads, **7.68 GB physical RAM**, Windows 11):
 
@@ -224,7 +240,7 @@ Evaluated on the reference host (**HP-SWAGAT**, 12th Gen Intel Core i5-1235U, 10
 
 ---
 
-## 7. Installation & Running Guide
+## 8. Installation & Running Guide
 
 ### Prerequisites
 * **Operating System:** Windows 11 (primary verified environment), Windows 10, Ubuntu 22.04 LTS, or macOS.
@@ -332,7 +348,7 @@ docker compose down
 
 ---
 
-## 8. Common Troubleshooting
+## 9. Common Troubleshooting
 
 | Issue | Root Cause | Solution |
 | :--- | :--- | :--- |
@@ -344,7 +360,7 @@ docker compose down
 
 ---
 
-## 9. Verification & Testing
+## 10. Verification & Testing
 
 ### Backend Unit & Integration Tests
 Run the comprehensive pytest suite:
@@ -380,7 +396,7 @@ dist/assets/index-CSiZLJaO.js   938.97 kB │ gzip: 241.43 kB
 
 ---
 
-## 10. Documentation Index
+## 11. Documentation Index
 
 Detailed engineering documentation is located in the [`docs/`](./docs) directory:
 
@@ -399,7 +415,7 @@ Detailed engineering documentation is located in the [`docs/`](./docs) directory
 
 ---
 
-## 11. Ethical, Clinical & Regulatory Notice
+## 12. Ethical, Clinical & Regulatory Notice
 
 PulmoVision AI is an experimental prototype designed for scientific research and educational demonstration only.
 
@@ -409,7 +425,7 @@ PulmoVision AI is an experimental prototype designed for scientific research and
 
 ---
 
-## 12. License & Citation
+## 13. License & Citation
 
 PulmoVision AI is distributed under the **Apache License 2.0**. See [`LICENSE`](./LICENSE) for full legal terms.
 

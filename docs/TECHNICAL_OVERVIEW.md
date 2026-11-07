@@ -218,3 +218,4 @@ $$\sigma_k = \sqrt{\frac{1}{N_k} \sum_{i \in \Omega_k} (\text{HU}_i - \mu_k)^2}$
 * **Stateless JWT Tokens:** HS256 signed tokens with 12-hour expiration.
 * **Audit Logging:** Every scan upload, segmentation execution, and report download generates an immutable `AuditLog` record containing user ID, IP address, timestamp, and action details.
 * **HIPAA De-Identification:** Patient names and identifying tags are stripped during ingestion; files are referenced by anonymous study codes and UUIDs.
+
