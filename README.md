@@ -18,9 +18,33 @@
 
 [Repository](https://github.com/Swagat744/PulmoVision.git) • [User Guide](./docs/USER_GUIDE.md) • [Technical Overview](./docs/TECHNICAL_OVERVIEW.md) • [API Documentation](./docs/API_DOCUMENTATION.md) • [Architecture](./docs/ARCHITECTURE.md)
 
-<br/><br/>
+## Application Preview
 
-<img src="./docs/assets/pulmovision_hero.png" alt="PulmoVision AI — Thoracic CT Segmentation & 3D Analytics Platform" width="850" style="border-radius: 12px; border: 1px solid #263445; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);" />
+Explore the PulmoVision AI interface, from the research dashboard to the dedicated medical imaging workstation.
+
+<div align="center">
+
+### Overview Dashboard
+
+<img src="./docs/assets/pulmovision_dashboard.png" alt="PulmoVision AI Overview Dashboard" width="100%" />
+
+*Centralized research dashboard for managing studies, monitoring segmentation activity, and reviewing analysis.*
+
+<br/>
+
+### Medical Imaging Workstation
+
+<img src="./docs/assets/pulmovision_workstation.png" alt="PulmoVision AI Medical Imaging Workstation" width="100%" />
+
+*Interactive CT imaging workspace with multi-planar visualization, segmentation overlays, and 3D anatomical reconstruction.*
+
+<br/>
+
+### Platform Preview
+
+<img src="./docs/assets/pulmovision_hero.png" alt="PulmoVision AI Platform Preview" width="100%" />
+
+*PulmoVision AI — Thoracic CT Segmentation & 3D Quantitative Research Platform.*
 
 </div>
 
